@@ -6,4 +6,8 @@
     "automergeType": "pr",
     "automerge": true
   }
+  "tekton": {
+    "enabled": true,
+    "fileMatch": ["\\.yaml$", "\\.yml$"]
+  }
 }
