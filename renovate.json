@@ -1,6 +1,6 @@
 {
   "enabledManagers": ["containerfile", "tekton"],
-  "dockerfile": {
+  "containerfile": {
     "enabled": true,
     "ignoreTests": true,
     "automergeType": "pr",
@@ -9,5 +9,7 @@
   "tekton": {
     "enabled": true,
     "fileMatch": ["\\.yaml$", "\\.yml$"]
+    "automergeType": "pr",
+    "automerge": true
   }
 }
