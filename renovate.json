@@ -1,5 +1,5 @@
 {
-  "enabledManagers": ["dockerfile", "tekton"],
+  "enabledManagers": ["containerfile", "tekton"],
   "dockerfile": {
     "enabled": true,
     "ignoreTests": true,
