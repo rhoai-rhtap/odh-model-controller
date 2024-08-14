@@ -5,10 +5,10 @@
     "ignoreTests": true,
     "automergeType": "pr",
     "automerge": true
-  }
+  },
   "tekton": {
     "enabled": true,
-    "fileMatch": ["\\.yaml$", "\\.yml$"]
+    "fileMatch": ["\\.yaml$", "\\.yml$"],
     "automergeType": "pr",
     "automerge": true
   }
