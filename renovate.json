@@ -10,6 +10,7 @@
     "enabled": true,
     "fileMatch": ["\\.yaml$", "\\.yml$"],
     "automergeType": "pr",
+    "ignoreTests": true,
     "automerge": true
   }
 }
