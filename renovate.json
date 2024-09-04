@@ -16,7 +16,6 @@
   "packageRules": [
     {
       "paths": ["config/base/params.env"],
-      "sourceBranch": "konflux-internal-p02",
       "ignoreTests": true,
       "automergeType": "pr",
       "automerge": true
