@@ -21,5 +21,6 @@
       "ignoreTests": true,
       "automergeType": "branch-push",
       "prPriority": 1
+    }  
   ]
 }
