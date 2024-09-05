@@ -9,10 +9,12 @@
   },
   "packageRules": [
     {
-      "matchFileNames": [".env"],
+      "matchFileNames": ["config/base/params.env"],
+      "enabled": true,
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": true
     }
-  ]
+  ],
+  "ignorePaths": ["**/node_modules/**", "**/bower_components/**"]
 }
