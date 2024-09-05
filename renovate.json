@@ -1,28 +1,8 @@
 {
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": ["config/base/params.env"],
-      "matchStrings": [
-        "^(?<depName>[^\\s]+)\\s*=\\s*(?<currentValue>[^\\s]+)"
-      ],
-      "depNameTemplate": "custom.registry/newImage",
-      "autoReplaceStringTemplate": "{{{depName}}}={{{newValue}}}",
-      "datasourceTemplate": "docker"
-    }
-  ],
   "enabledManagers": ["dockerfile"],
-  "dockerfile": {
-    "enabled": true,
-    "ignoreTests": true,
-    "automergeType": "pr",
-    "automerge": true,
-    "platformAutomerge": true
-  },
   "packageRules": [
     {
-      "matchFileNames": ["config/base/params.env"],
-      "extends": [":semanticCommitTypeAll(chore)"],
+      "matchFileNames": ["config/base/**"],
       "enabled": true,
       "automerge": true,
       "automergeType": "pr",
