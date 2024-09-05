@@ -4,7 +4,8 @@
     "enabled": true,
     "ignoreTests": true,
     "automergeType": "pr",
-    "automerge": true
+    "automerge": true,
+    "platformAutomerge": true
   },
   "tekton": {
     "enabled": true,
@@ -17,10 +18,9 @@
   "packageRules": [
     {
       "matchFileNames": ["config/base/params.env", "\\\\.env$"],
-      "automerge": true,
       "ignoreTests": true,
       "automergeType": "pr",
-      "platformAutomerge": true
+      "automerge": true
     }
   ]
 }
