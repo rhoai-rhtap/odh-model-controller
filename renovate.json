@@ -15,12 +15,10 @@
   },
   "packageRules": [
     {
-      "paths": ["config/base/params.env"],
-      "matchPaths": ["config/base/params.env"],
+      "matchPaths": ["config/base/params.env", "\\.env$"],
       "automerge": true,
       "ignoreTests": true,
-      "automergeType": "branch-push",
-      "prPriority": 1
+      "automergeType": "pr"
     }  
   ]
 }
