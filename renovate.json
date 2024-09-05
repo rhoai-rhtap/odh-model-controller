@@ -1,26 +1,12 @@
 {
-  "enabledManagers": ["dockerfile", "tekton"],
-  "dockerfile": {
-    "enabled": true,
-    "ignoreTests": true,
-    "automergeType": "pr",
-    "automerge": true,
-    "platformAutomerge": true
-  },
-  "tekton": {
-    "enabled": true,
-    "fileMatch": ["\\.yaml$", "\\.yml$"],
-    "automergeType": "pr",
-    "ignoreTests": true,
-    "automerge": true,
-    "platformAutomerge": true
-  },
+  "enabledManagers": ["dockerfile"],  // Ensure only relevant managers are enabled if needed
   "packageRules": [
     {
-      "matchFileNames": ["config/base/params.env", "\\\\.env$"],
-      "ignoreTests": true,
+      "matchFileNames": ["\\.env$"],
+      "automerge": true,
       "automergeType": "pr",
-      "automerge": true
+      "ignoreTests": true
     }
-  ]
+  ],
+  "logLevel": "debug"  // Temporarily set log level to debug for more detailed logs
 }
