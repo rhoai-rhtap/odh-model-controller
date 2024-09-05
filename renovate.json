@@ -1,5 +1,5 @@
 {
-  "enabledManagers": ["file"],
+  "enabledManagers": ["dockerfile"],
   "packageRules": [
     {
       "matchFileNames": ["\\.env$"],
