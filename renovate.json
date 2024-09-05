@@ -11,14 +11,16 @@
     "fileMatch": ["\\.yaml$", "\\.yml$"],
     "automergeType": "pr",
     "ignoreTests": true,
-    "automerge": true
+    "automerge": true,
+    "platformAutomerge": true
   },
   "packageRules": [
     {
-      "matchPaths": ["config/base/params.env", "\\\\.env$"],
+      "matchFileNames": ["config/base/params.env", "\\\\.env$"],
       "automerge": true,
       "ignoreTests": true,
-      "automergeType": "pr"
+      "automergeType": "pr",
+      "platformAutomerge": true
     }
   ]
 }
