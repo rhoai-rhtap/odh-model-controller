@@ -1,5 +1,5 @@
 {
-  "enabledManagers": [],
+  "enabledManagers": ["file"],
   "packageRules": [
     {
       "matchFileNames": ["\\.env$"],
