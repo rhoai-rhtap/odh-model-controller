@@ -7,6 +7,5 @@
       "automergeType": "pr",
       "ignoreTests": true
     }
-  ],
-  "logLevel": "debug"
+  ]
 }
