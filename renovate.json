@@ -1,7 +1,7 @@
 {
   "packageRules": [
     {
-      "description": "Automerge non-major updates",
+      "description": "chore(deps): update caikit-nlp-test",
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "automergeType": "pr"
