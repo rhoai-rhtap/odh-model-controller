@@ -1,17 +1,17 @@
 {
-  "enabledManagers": ["dockerfile"],
-  "packageRules": [
-    {
-      "matchFileNames": ["\\.env$"],
-      "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": true
-    },
-    {
-      "matchPackageNames": ["caikit-nlp-test"],
-      "automerge": true
-    }
-  ],
-  "automerge": true,
-  "automergeType": "pr"
+  "enabledManagers": ["dockerfile", "file"], 
+  "dockerfile": {
+    "enabled": true,
+    "ignoreTests": true,
+    "automergeType": "pr",
+    "automerge": true,
+    "platformAutomerge": true
+  },
+  "file": {
+    "enabled": true,
+    "fileMatch": ["\\.env$"],
+    "automergeType": "pr",
+    "ignoreTests": true,
+    "automerge": true
+  }
 }
