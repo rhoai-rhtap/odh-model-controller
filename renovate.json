@@ -10,6 +10,7 @@
   "packageRules": [
     {
       "matchFileNames": ["config/base/params.env"],
+      "extends": [":semanticCommitTypeAll(chore)"],
       "enabled": true,
       "automerge": true,
       "automergeType": "pr",
