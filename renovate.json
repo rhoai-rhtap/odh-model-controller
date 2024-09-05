@@ -1,12 +1,4 @@
 {
-  "packageRules": [
-    {
-      "description": "chore(deps): update caikit-nlp-test",
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "pr"
-    }
-  ],
   "enabledManagers": ["dockerfile", "tekton"],
   "dockerfile": {
     "enabled": true,
@@ -22,5 +14,13 @@
     "ignoreTests": true,
     "automerge": true,
     "platformAutomerge": true
-  }
+  },
+  "packageRules": [
+    {
+      "description": "chore(deps): update caikit-nlp-test",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ]
 }
