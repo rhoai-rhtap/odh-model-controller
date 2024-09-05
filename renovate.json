@@ -1,13 +1,26 @@
 {
-  "enabledManagers": ["dockerfile"],
   "packageRules": [
     {
-      "matchFileNames": ["config/base/**"],
-      "enabled": true,
+      "description": "Automerge non-major updates",
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": true
+      "automergeType": "pr"
     }
   ],
-  "ignorePaths": ["**/node_modules/**", "**/bower_components/**"]
+  "enabledManagers": ["dockerfile", "tekton"],
+  "dockerfile": {
+    "enabled": true,
+    "ignoreTests": true,
+    "automergeType": "pr",
+    "automerge": true,
+    "platformAutomerge": true
+  },
+  "tekton": {
+    "enabled": true,
+    "fileMatch": [".yaml$", ".yml$"],
+    "automergeType": "pr",
+    "ignoreTests": true,
+    "automerge": true,
+    "platformAutomerge": true
+  }
 }
