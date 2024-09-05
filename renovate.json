@@ -1,5 +1,5 @@
 {
-  "enabledManagers": ["dockerfile", "file"], 
+  "enabledManagers": ["dockerfile"],
   "dockerfile": {
     "enabled": true,
     "ignoreTests": true,
@@ -7,11 +7,12 @@
     "automerge": true,
     "platformAutomerge": true
   },
-  "file": {
-    "enabled": true,
-    "fileMatch": ["\\.env$"],
-    "automergeType": "pr",
-    "ignoreTests": true,
-    "automerge": true
-  }
+  "packageRules": [
+    {
+      "matchFileNames": ["\\.env$"],
+      "automerge": true,
+      "automergeType": "pr",
+      "ignoreTests": true
+    }
+  ]
 }
