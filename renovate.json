@@ -9,7 +9,7 @@
   },
   "packageRules": [
     {
-      "matchFileNames": ["\\.env$"],
+      "matchFileNames": [".env"],
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": true
