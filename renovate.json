@@ -1,6 +1,6 @@
 {
-  "enabledManagers": ["containerfile", "tekton"],
-  "containerfile": {
+  "enabledManagers": ["dockerfile", "tekton"],
+  "dockerfile": {
     "enabled": true,
     "ignoreTests": true,
     "automergeType": "pr",
