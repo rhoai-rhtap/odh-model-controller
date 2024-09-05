@@ -1,5 +1,5 @@
 {
-  "enabledManagers": ["dockerfile"],  // Ensure only relevant managers are enabled if needed
+  "enabledManagers": [],
   "packageRules": [
     {
       "matchFileNames": ["\\.env$"],
@@ -8,5 +8,5 @@
       "ignoreTests": true
     }
   ],
-  "logLevel": "debug"  // Temporarily set log level to debug for more detailed logs
+  "logLevel": "debug"
 }
