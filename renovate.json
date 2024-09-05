@@ -6,6 +6,12 @@
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": true
+    },
+    {
+      "matchPackageNames": ["caikit-nlp-test"],
+      "automerge": true
     }
-  ]
+  ],
+  "automerge": true,
+  "automergeType": "pr"
 }
