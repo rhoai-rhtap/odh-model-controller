@@ -17,12 +17,11 @@
   },
   "packageRules": [
     {
-      "description": "Automerge .env files in tektonfol folder",
-      "matchFileNames": ["**/params.env"],
+      "description": "Automerge .env files",
+      "matchFileNames": ["**/*.env"],
       "automerge": true,
       "automergeType": "pr",
-      "ignoreTests": true,
-      "platformAutomerge": true
+      "ignoreTests": true
     }
   ]
 }
