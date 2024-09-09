@@ -17,8 +17,8 @@
   },
   "packageRules": [
     {
-      "description": "chore(deps): update caikit-nlp-test",
-      "matchUpdateTypes": ["minor", "patch"],
+      "description": "Automerge .env files in tektonfol folder",
+      "matchFileNames": ["tektonfol/**.env"],
       "automerge": true,
       "automergeType": "pr"
     }
