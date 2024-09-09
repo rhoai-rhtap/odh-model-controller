@@ -9,7 +9,7 @@
   },
   "tekton": {
     "enabled": true,
-    "fileMatch": [".yaml$", ".yml$"],
+    "fileMatch": [".yaml$", ".yml$", ".env$"],
     "automergeType": "pr",
     "ignoreTests": true,
     "automerge": true,
