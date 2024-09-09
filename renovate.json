@@ -18,10 +18,11 @@
   "packageRules": [
     {
       "description": "Automerge .env files",
-      "matchFileNames": ["config/*.env", "**/*.env"],
+      "matchFileNames": ["config/params.env"],
       "automerge": true,
       "automergeType": "pr",
-      "ignoreTests": true
+      "ignoreTests": true,
+      "platformAutomerge": true
     }
   ]
 }
