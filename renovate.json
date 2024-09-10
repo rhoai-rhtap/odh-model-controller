@@ -9,20 +9,10 @@
   },
   "tekton": {
     "enabled": true,
-    "fileMatch": [".yaml$", ".yml$"],
+    "fileMatch": [".yaml$", ".yml$", ".env$"],
     "automergeType": "pr",
     "ignoreTests": true,
     "automerge": true,
     "platformAutomerge": true
-  },
-  "packageRules": [
-    {
-      "description": "Automerge .env files",
-      "matchFileNames": ["config/params.env"],
-      "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": true,
-      "platformAutomerge": true
-    }
-  ]
+  }
 }
