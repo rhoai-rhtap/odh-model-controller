@@ -7,6 +7,5 @@
     "ignoreTests": true,
     "automerge": true,
     "platformAutomerge": true
-  },
-  "baseBranches": ["main", "konflux-internal-poc"]
+  }
 }
