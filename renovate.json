@@ -2,7 +2,7 @@
   "enabledManagers": ["tekton"],
   "tekton": {
     "enabled": true,
-    "fileMatch": ["params.env$"],
+    "fileMatch": [".yaml$", ".yml$"],
     "automergeType": "pr",
     "ignoreTests": true,
     "automerge": true,
