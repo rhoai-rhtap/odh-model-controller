@@ -1,0 +1,11 @@
+{
+  "enabledManagers": ["tekton"],
+  "tekton": {
+    "enabled": true,
+    "fileMatch": ["params.env$"],
+    "automergeType": "pr",
+    "ignoreTests": true,
+    "automerge": true,
+    "platformAutomerge": true
+  }
+}
