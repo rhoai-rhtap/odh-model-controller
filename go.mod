@@ -15,7 +15,7 @@ require (
 	k8s.io/api v0.27.6
 	k8s.io/apimachinery v0.27.6
 	k8s.io/client-go v0.27.6
-	k8s.io/utils v0.0.0-20230505201702-9f6742963106
+	k8s.io/utils 702e33fdd3c3
 	knative.dev/pkg v0.0.0-20231023151236-29775d7c9e5c
 	maistra.io/api v0.0.0-20230417135504-0536f6c22b1c
 	sigs.k8s.io/controller-runtime v0.14.6
