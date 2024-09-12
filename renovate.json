@@ -1,7 +1,7 @@
 {
   "packageRules": [
     {
-      "matchFileNames": ["**/*.env"],
+      "matchFileNames": ["**/*.env", "**/*.yaml", "**/*.yml"],
       "automerge": true,
       "automergeType": "pr"
     }
