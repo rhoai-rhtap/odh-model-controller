@@ -1,7 +1,7 @@
 {
   "packageRules": [
     {
-      "matchFileNames": ["**/*.env", "**/*.yaml", "**/*.yml"],
+      "matchFileNames": ["config/base/params.env"],
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": true
