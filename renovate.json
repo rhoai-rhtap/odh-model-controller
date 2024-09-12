@@ -17,7 +17,6 @@
   },
   "packageRules": [
     {
-      "enabled": true,
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["**/*.env"],
       "automerge": true,
