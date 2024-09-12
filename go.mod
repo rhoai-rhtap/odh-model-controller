@@ -3,7 +3,7 @@ module github.com/opendatahub-io/odh-model-controller
 go 1.19
 
 require (
-	github.com/go-logr/logr v1.2.4
+	github.com/go-logr/logr v1.4.2
 	github.com/kserve/kserve v0.11.0
 	github.com/onsi/ginkgo v1.16.4
 	github.com/onsi/gomega v1.27.6
