@@ -1,34 +1,11 @@
 {
   "packageRules": [
     {
-      "matchManagers": ["custom.regex"],
-      "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": true
-    },
-    {
       "matchFileNames": ["**/*.env"],
       "automerge": true,
-      "automergeType": "pr",
-      "ignoreTests": true
+      "automergeType": "pr"
     }
   ],
-  "enabledManagers": ["dockerfile", "tekton", "custom.regex"],
-  "dockerfile": {
-    "enabled": true,
-    "ignoreTests": true,
-    "automergeType": "pr",
-    "automerge": true,
-    "platformAutomerge": true
-  },
-  "tekton": {
-    "enabled": true,
-    "fileMatch": [".yaml$", ".yml$"],
-    "automergeType": "pr",
-    "ignoreTests": true,
-    "automerge": true,
-    "platformAutomerge": true
-  },
   "baseBranches": [
     "konflux-internal-poc"
   ]
