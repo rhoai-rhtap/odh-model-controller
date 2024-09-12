@@ -1,8 +1,29 @@
 {
-  "enabledManagers": ["tekton"],
+  "packageRules": [
+    {
+      "matchManagers": ["custom.regex"],
+      "automerge": true,
+      "automergeType": "pr",
+      "ignoreTests": true
+    },
+    {
+      "matchFileNames": ["**/*.env"],
+      "automerge": true,
+      "automergeType": "pr",
+      "ignoreTests": true
+    }
+  ],
+  "enabledManagers": ["dockerfile", "tekton", "custom.regex"],
+  "dockerfile": {
+    "enabled": true,
+    "ignoreTests": true,
+    "automergeType": "pr",
+    "automerge": true,
+    "platformAutomerge": true
+  },
   "tekton": {
     "enabled": true,
-    "fileMatch": ["params.env$"],
+    "fileMatch": [".yaml$", ".yml$"],
     "automergeType": "pr",
     "ignoreTests": true,
     "automerge": true,
