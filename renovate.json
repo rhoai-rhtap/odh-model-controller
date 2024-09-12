@@ -3,7 +3,8 @@
     {
       "matchFileNames": ["**/*.env", "**/*.yaml", "**/*.yml"],
       "automerge": true,
-      "automergeType": "pr"
+      "automergeType": "pr",
+      "ignoreTests": true
     }
   ],
   "baseBranches": [
