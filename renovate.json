@@ -18,7 +18,7 @@
   "packageRules": [
     {
       "matchManagers": ["custom.regex"],
-      "matchFileNames": ["**/*.env"],
+      "matchFileNames": ["config/params.env"],
       "automerge": true,
       "automergeType": "pr",
       "ignoreTests": true,
