@@ -22,7 +22,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/rhoai/odh-model-controller:{{revision}}
+    value: quay.io/rhoai/odh-model-controller-rhel8:{{revision}}
   - name: dockerfile
     value: Containerfile
   - name: path-context
