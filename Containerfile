@@ -1,5 +1,5 @@
 # Build the manager binary
-FROM registry.access.redhat.com/ubi8/go-toolset:1.21 as builder
+FROM registry.access.redhat.com/ubi8/go-toolset@sha256:4ec05fd5b355106cc0d990021a05b71bbfb9231e4f5bdc0c5316515edf6a1c96 as builder
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
@@ -18,11 +18,26 @@ COPY controllers/ controllers/
 USER root
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o manager main.go
 
-# Use distroless as minimal base image to package the manager binary
-# Refer to https://github.com/GoogleContainerTools/distroless for more details
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10
+FROM registry.redhat.io/ubi8/ubi-minimal:latest AS runtime
+
+ARG CI_CONTAINER_VERSION
+ARG USER=2000
+
+LABEL com.redhat.component="odh-model-controller-container" \
+      name="managed-open-data-hub/odh-model-controller-rhel8" \
+      version="${CI_CONTAINER_VERSION}" \
+      git.url="${CI_ODH_MODEL_CONTROLLER_UPSTREAM_URL}" \
+      git.commit="${CI_ODH_MODEL_CONTROLLER_UPSTREAM_COMMIT}" \
+      summary="odh-model-controller" \
+      io.openshift.expose-services="" \
+      io.k8s.display-name="odh-model-controller" \
+      maintainer="['managed-open-data-hub@redhat.com']" \
+      description="The controller removes the need for users to perform manual steps when deploying their models" \
+      com.redhat.license_terms="https://www.redhat.com/licenses/Red_Hat_Standard_EULA_20191108.pdf"
+
 WORKDIR /
 COPY --from=builder /workspace/manager .
-USER 65532:65532
+USER ${USER}
 
 ENTRYPOINT ["/manager"]
+
