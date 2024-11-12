@@ -6,31 +6,32 @@ on:
 
 jobs:
   process_pr:
+    if: ${{ github.event.sender.login != 'konflux-internal-p02[bot]' && github.event.sender.login != 'devops-bot' }}
     runs-on: ubuntu-latest
     env:
       JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # Conditional statement to skip the job if the sender is either of the two bots
-    if: ${{ github.event.sender.login != 'konflux-internal-p02[bot]' && github.event.sender.login != 'devops-bot' }}
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      # Step 1: Get pcam-releases.yaml from the current repository
-      - name: Check if branch is in allowed releases
+      # Step 1: Clone the repository containing releases.yaml
+      - name: Clone releases repository
         run: |
+          git clone https://github.com/red-hat-data-services/rhods-devops-infra.git
+          echo "Releases repository cloned."
+
+      # Step 2: Install yq and check branch in releases.yaml
+      - name: Check if branch is in allowed releases
+        if: ${{ github.event.sender.login != 'konflux-internal-p02[bot]' && github.event.sender.login != 'devops-bot' }}
+        run: |
+          # Install yq
+          sudo wget https://github.com/mikefarah/yq/releases/download/v4.6.1/yq_linux_amd64 -O /usr/local/bin/yq
+          sudo chmod +x /usr/local/bin/yq
+      
           # Get the base branch of the PR
           base_branch="${{ github.event.pull_request.base.ref }}"
       
-          # Load allowed releases from src/config/pcam-releases.yaml and check if base branch is allowed
-          allowed_releases=$(yq eval '.releases[]' src/config/pcam-releases.yaml)
+          # Load allowed releases from releases.yaml and check if base branch is allowed
+          allowed_releases=$(yq eval '.releases[]' rhods-devops-infra/src/config/releases.yaml)
       
           if echo "$allowed_releases" | grep -qx "$base_branch"; then
             echo "Branch '$base_branch' is allowed. Proceeding."
@@ -43,6 +44,7 @@ jobs:
       - uses: lasith-kg/dispatch-workflow@v2.0.0
         id: trigger-another-workflow
         name: Trigger another workflow to process PR
+        if: ${{ github.event.sender.login != 'konflux-internal-p02[bot]' && github.event.sender.login != 'devops-bot' }}
         with:
           dispatch-method: workflow_dispatch
           repo: test-automerger
