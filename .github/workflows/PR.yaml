@@ -59,9 +59,9 @@ jobs:
           fi
 
       # Step 4: Trigger the other workflow in the test-automerger repository
-      - name: Trigger another workflow to process PR
+      - uses: lasith-kg/dispatch-workflow@v2.0.0
         id: trigger-another-workflow
-        uses: lasith-kg/dispatch-workflow@v2.0.0
+        name: Trigger another workflow to process PR
         with:
           dispatch-method: workflow_dispatch
           repo: test-automerger
@@ -71,8 +71,9 @@ jobs:
           workflow-inputs: '{"pr_id": "${{ github.event.pull_request.number }}", "repo": "${{ github.event.repository.name }}"}'
           ref: 'main'
           discover: true  # This allows the action to discover the run id and URL from the triggered workflow
-      
-      - name: Echo Run ID and Run URL
+          
+      - id: echo-run-id-url
+        name: Echo Run ID and Run URL
         run: |
           echo "Triggered workflow run-id = ${{ steps.trigger-another-workflow.outputs.run-id }}"
-          echo "Triggered workflow run-url = https://github.com/MohammadiIram/test-automerger/actions/runs/${{ steps.trigger-another-workflow.outputs.run-id }}"
+          echo "Triggered workflow run-url = ${{ steps.trigger-another-workflow.outputs.run-url }}"
