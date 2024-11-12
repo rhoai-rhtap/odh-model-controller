@@ -16,12 +16,13 @@ jobs:
       # Step 1: Clone the repository containing releases.yaml
       - name: Clone releases repository
         run: |
-          git clone https://github.com/red-hat-data-services/rhods-devops-infra.git
+          git clone https://$GITHUB_TOKEN@github.com/red-hat-data-services/rhods-devops-infra.git
           echo "Releases repository cloned."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 2: Install yq and check branch in releases.yaml
       - name: Check if branch is in allowed releases
-        if: ${{ github.event.sender.login != 'konflux-internal-p02[bot]' && github.event.sender.login != 'devops-bot' }}
         run: |
           # Install yq
           sudo wget https://github.com/mikefarah/yq/releases/download/v4.6.1/yq_linux_amd64 -O /usr/local/bin/yq
