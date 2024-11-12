@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.x'
 
-      # Step 1: Get pcam-release.yaml from the current repository
+      # Step 1: Get pcam-releases.yaml from the current repository
       - name: Check if branch is in allowed releases
         run: |
           # Install yq
@@ -30,8 +30,8 @@ jobs:
           # Get the base branch of the PR
           base_branch="${{ github.event.pull_request.base.ref }}"
       
-          # Load allowed releases from pcam-release.yaml and check if base branch is allowed
-          allowed_releases=$(yq eval '.releases[]' pcam-release.yaml)
+          # Load allowed releases from src/config/pcam-releases.yaml and check if base branch is allowed
+          allowed_releases=$(yq eval '.releases[]' src/config/pcam-releases.yaml)
       
           if echo "$allowed_releases" | grep -qx "$base_branch"; then
             echo "Branch '$base_branch' is allowed. Proceeding."
@@ -58,7 +58,7 @@ jobs:
         name: Trigger another workflow to process PR
         with:
           dispatch-method: workflow_dispatch
-          repo: 
+          repo: test-automerger
           owner: rhoai-rhtap
           workflow: post-codefreeze-auto-merger.yml
           token: ${{ secrets.PAT_TOKEN }}
