@@ -16,7 +16,7 @@ jobs:
       # Step 1: Clone the repository containing releases.yaml
       - name: Clone releases repository
         run: |
-          git clone https://$GITHUB_TOKEN@github.com/red-hat-data-services/rhods-devops-infra.git
+          git -c http.extraHeader="Authorization: Bearer $GITHUB_TOKEN" clone https://github.com/red-hat-data-services/rhods-devops-infra.git
           echo "Releases repository cloned."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
