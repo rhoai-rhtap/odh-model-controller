@@ -71,10 +71,19 @@ jobs:
           workflow-inputs: '{"pr_id": "${{ github.event.pull_request.number }}", "repo": "${{ github.event.repository.name }}"}'
           ref: 'main'
 
-      - name: Display run information
+      - name: Construct and display run URL
         run: |
-          echo "run-id = $GITHUB_RUN_ID"
-          echo "run-url = $GITHUB_RUN_URL"
-        env:
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_RUN_URL: ${{ github.run_url }}
+          # Get the run ID from GitHub context
+          run_id="${{ github.run_id }}"
+      
+          # Extract the owner/repo from the repository context
+          owner_repo="${{ github.repository }}"
+          
+          # Construct the full run URL
+          run_url="https://github.com/${owner_repo}/actions/runs/${run_id}"
+          
+          # Display the run URL
+          echo "run-id = $run_id"
+          echo "run-url = $run_url"
+
+
