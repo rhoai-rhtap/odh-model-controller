@@ -73,7 +73,6 @@ jobs:
           discover: true  # This allows the action to discover the run id and URL from the triggered workflow
       
       - name: Echo Run ID and Run URL
-        id: echo-run-id-url
         run: |
           echo "Triggered workflow run-id = ${{ steps.trigger-another-workflow.outputs.run-id }}"
           echo "Triggered workflow run-url = https://github.com/MohammadiIram/test-automerger/actions/runs/${{ steps.trigger-another-workflow.outputs.run-id }}"
