@@ -14,12 +14,11 @@ jobs:
 
     steps:
       # Step 1: Clone the repository containing releases.yaml
-      - name: Clone releases repository
-        run: |
-          git -c http.extraHeader="Authorization: Bearer $GITHUB_TOKEN" clone https://github.com/red-hat-data-services/rhods-devops-infra.git
-          echo "Releases repository cloned."
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout releases repository
+        uses: actions/checkout@v2
+        with:
+          repository: red-hat-data-services/rhods-devops-infra
+          path: rhods-devops-infra  # Specify the directory to clone into
 
       # Step 2: Install yq and check branch in releases.yaml
       - name: Check if branch is in allowed releases
