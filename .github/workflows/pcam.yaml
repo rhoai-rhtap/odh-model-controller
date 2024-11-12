@@ -14,11 +14,10 @@ jobs:
 
     steps:
       # Step 1: Clone the repository containing releases.yaml
-      - name: Checkout releases repository
-        uses: actions/checkout@v2
-        with:
-          repository: red-hat-data-services/rhods-devops-infra
-          path: rhods-devops-infra  # Specify the directory to clone into
+      - name: Clone releases repository
+        run: |
+          git clone https://github.com/red-hat-data-services/rhods-devops-infra.git
+          echo "Releases repository cloned."
 
       # Step 2: Install yq and check branch in releases.yaml
       - name: Check if branch is in allowed releases
@@ -40,7 +39,14 @@ jobs:
             exit 1
           fi
 
-      # Step 2: Trigger the other workflow in the automation repository
+      # Step 2: generate token and trigger the other workflow in the automation repository
+      - name: Generate github-app token
+        id: app-token
+        uses: getsentry/action-github-app-token@v2
+        with:
+          app_id: ${{ secrets.RHDS_DEVOPS_APP_ID }}
+          private_key: ${{ secrets.RHDS_DEVOPS_APP_PRIVATE_KEY }}
+          
       - uses: lasith-kg/dispatch-workflow@v2.0.0
         id: trigger-another-workflow
         name: Trigger another workflow to process PR
@@ -50,6 +56,6 @@ jobs:
           repo: test-automerger
           owner: rhoai-rhtap
           workflow: post-codefreeze-auto-merger.yml
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           workflow-inputs: '{"pr_id": "${{ github.event.pull_request.number }}", "repo": "${{ github.event.repository.name }}"}'
           ref: 'main'
