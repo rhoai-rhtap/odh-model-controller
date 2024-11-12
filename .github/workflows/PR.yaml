@@ -1,17 +1,17 @@
-name: Process PR
+#name: Process PR
 
-on:
+#on:
   pull_request:
     types: [opened]
 
-jobs:
+#jobs:
   process_pr:
     runs-on: ubuntu-latest
     env:
       JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    steps:
+    #steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
