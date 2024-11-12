@@ -70,10 +70,10 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           workflow-inputs: '{"pr_id": "${{ github.event.pull_request.number }}", "repo": "${{ github.event.repository.name }}"}'
           ref: 'main'
-          discover: true
-
-      - id: echo-run-id-url
-        name: "Echo Run ID and Run URL"
+          discover: true  # This allows the action to discover the run id and URL from the triggered workflow
+      
+      - name: Echo Run ID and Run URL
+        id: echo-run-id-url
         run: |
-          echo "${{ steps.trigger-another-workflow.outputs.run-id }}"
-          echo "${{ steps.trigger-another-workflow.outputs.run-url }}"
+          echo "Triggered workflow run-id = ${{ steps.trigger-another-workflow.outputs.run-id }}"
+          echo "Triggered workflow run-url = https://github.com/MohammadiIram/test-automerger/actions/runs/${{ steps.trigger-another-workflow.outputs.run-id }}"
