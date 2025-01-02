@@ -37,7 +37,7 @@ jobs:
           base_branch="${{ github.event.pull_request.base.ref }}"
       
           # Load allowed releases from releases.yaml and check if base branch is allowed
-          allowed_releases=$(yq eval '.releases[]' test-automerger/releases.yaml)
+          allowed_releases=$(yq eval '.releases[]' config/releases.yaml)
       
           if echo "$allowed_releases" | grep -qx "$base_branch"; then
             echo "Branch '$base_branch' is allowed. Proceeding."
