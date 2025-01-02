@@ -23,7 +23,7 @@ jobs:
       # Step 1: Clone the repository containing releases.yaml
       - name: Clone releases repository
         run: |
-          git clone https://github.com/MohammadiIram/test-automerger.git
+          git clone https://github.com/red-hat-data-services/rhods-devops-infra.git
           echo "Releases repository cloned."
 
       # Step 2: Install yq and check branch in releases.yaml
