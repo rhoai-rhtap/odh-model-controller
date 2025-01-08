@@ -1,5 +1,6 @@
 # Build the manager binary
 FROM registry.access.redhat.com/ubi8/go-toolset@sha256:4ec05fd5b355106cc0d990021a05b71bbfb9231e4f5bdc0c5316515edf6a1c96 as builder
+#rhoai-2.13-1
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
