@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened]
 
+permissions:
+  contents: write
+  actions: write 
+
 jobs:
   process_pr:
     runs-on: ubuntu-latest
