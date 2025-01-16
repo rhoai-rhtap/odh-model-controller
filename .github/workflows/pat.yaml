@@ -63,7 +63,7 @@ jobs:
           dispatch-method: workflow_dispatch
           repo: test-automerger
           owner: MohammadiIram
-          workflow: PR.yaml 
+          workflow: PAT.yaml 
           token: ${{ secrets.PAT1_TOKEN }}
           workflow-inputs: '{"pr_id": "${{ github.event.pull_request.number }}", "repo": "${{ github.event.repository.name }}"}'
           ref: 'main'
