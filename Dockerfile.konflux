@@ -2,7 +2,7 @@
 ARG SOURCE_CODE=.
 
 # Build the manager binary
-FROM registry.redhat.io/ubi8/go-toolset:1.26.5-1787080665@sha256:9c29c553757dcd5fb678f16feac5099a55be559473fba95e06c495a90b5fca88 as builder
+FROM registry.redhat.io/ubi8/go-toolset:1.26.5-1787128193@sha256:3cebd4904e3187c34789b2053b824088d87eeb2f49a95055436b90f83d322ebc as builder
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
