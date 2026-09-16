@@ -21,7 +21,7 @@ COPY controllers/ controllers/
 USER root
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o manager main.go
 
-FROM registry.redhat.io/ubi8/ubi-minimal@sha256:e2e7f267999e366c768ff36ff69e8c1cf591375f0f27109535570029d1020784 AS runtime
+FROM registry.redhat.io/ubi8/ubi-minimal@sha256:128021168edb5b3013258601a2dffe93fddfed91cf996c08c76a24dfdcd6de13 AS runtime
 
 ARG USER=2000
 
